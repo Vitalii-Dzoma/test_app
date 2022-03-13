@@ -1,0 +1,24 @@
+.paginationList {
+  list-style: none;
+
+  column-gap: 2px;
+}
+
+.paginationList li {
+  margin: 0 1px;
+}
+
+ul.paginationList {
+  display: inline;
+  margin: 0 auto;
+  padding: 0;
+}
+
+ul.paginationList li a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border: 1px solid #ddd;
+}
