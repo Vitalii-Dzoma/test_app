@@ -6,10 +6,12 @@ import { Main } from './Main/Main';
 import { fetchData } from './API/Api';
 import Pagination from 'rc-pagination';
 import s from './s.module.css';
+import { Sorting } from './Sorting/Sorting';
 export const App = () => {
   const countPerPage = 10;
   const [count, setCount] = useState(1);
   const [students, setStudents] = useState(null);
+  const [dir, SetDir] = useState(1);
 
   useEffect(() => {
     console.log('Запускается эффект');
@@ -43,6 +45,21 @@ export const App = () => {
     const from = to - countPerPage;
     fetchNext();
   };
+
+  async function sortData(type) {
+    const response = await fetch(
+      `https://test-task-j.herokuapp.com/data?page=1&size=10&sortBy=${type}&sortDir=${dir}`
+    );
+
+    const dataGeneral = await response.json();
+    if (dir === 1) {
+      SetDir(-1);
+    } else {
+      SetDir(1);
+    }
+    setStudents(dataGeneral);
+    return students;
+  }
 
   const formSubmitHandler = search => {
     setCount(1);
@@ -86,6 +103,7 @@ export const App = () => {
           total={20}
         />
       )}
+      <Sorting onSort={sortData} />
     </div>
   );
 };
