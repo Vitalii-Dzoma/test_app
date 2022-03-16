@@ -23,7 +23,13 @@ export const SearchBar = ({ onSubmit }) => {
   };
 
   return (
-    <form className={s.form} onSubmit={handleSubmit}>
+    <form
+      className={s.form}
+      onSubmit={handleSubmit}
+      style={{
+        fontFamily: 'Rubik',
+      }}
+    >
       <button type="submit" className={s.button}>
         <span className="button-label"></span>
       </button>

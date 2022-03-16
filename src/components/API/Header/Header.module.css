@@ -12,3 +12,14 @@
   list-style: none;
   margin: 0;
 }
+
+.nav__button {
+  color: #777777;
+  border-color: transparent;
+  background-color: transparent;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  text-transform: uppercase;
+}

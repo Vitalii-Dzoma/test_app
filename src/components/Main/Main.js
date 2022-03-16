@@ -3,8 +3,19 @@ import { useState } from 'react';
 import s from './Main.module.css';
 
 export const Main = ({ items }) => {
+  const [visible, setVisible] = useState(false);
+
+  const toggle = () => {
+    setVisible(!visible);
+  };
+
   return (
-    <table className={s.scores}>
+    <table
+      className={s.scores}
+      style={{
+        fontFamily: 'Rubik',
+      }}
+    >
       <thead>
         <tr>
           <th className={s.tRows}>Name</th>
@@ -17,7 +28,7 @@ export const Main = ({ items }) => {
       </thead>
       <tbody>
         {items.map((item, index) => (
-          <tr key={index}>
+          <tr key={index} onClick={toggle} className={s.Dropdown}>
             <td>{item.name}</td>
             <td>{item.id}</td>
             <td>{item.class}</td>
@@ -26,6 +37,16 @@ export const Main = ({ items }) => {
             <td>{item.parents}</td>
           </tr>
         ))}
+        {visible && (
+          <tr key={'Выпадайка'} className={s.Dropdown__menu}>
+            <td>{'Console'}</td>
+            <td>{'Console'}</td>
+            <td>{'Console'}</td>
+            <td>{'Console'}</td>
+            <td>{'Console'}</td>
+            <td>{'Console'}</td>
+          </tr>
+        )}
       </tbody>
     </table>
   );

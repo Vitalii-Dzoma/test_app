@@ -1,8 +1,10 @@
 import { HeaderOnPage } from './API/Header/Header';
+import { CSVLink, CSVDownload } from 'react-csv';
 import { SecondHeader } from './SecondHeader/SecondHeader';
 import { useState, useEffect } from 'react';
 import { SearchBar } from './SearchBar/SearchBar';
 import { Main } from './Main/Main';
+import Dropdown from './Dropdown/Dropdown';
 import { fetchData } from './API/Api';
 import Pagination from 'rc-pagination';
 import s from './s.module.css';
@@ -48,7 +50,7 @@ export const App = () => {
 
   async function sortData(type) {
     const response = await fetch(
-      `https://test-task-j.herokuapp.com/data?page=1&size=10&sortBy=${type}&sortDir=${dir}`
+      `https://test-task-j.herokuapp.com/data?page=${count}&size=10&sortBy=${type}&sortDir=${dir}`
     );
 
     const dataGeneral = await response.json();
@@ -85,15 +87,18 @@ export const App = () => {
         display: 'block',
         fontSize: 20,
         textTransform: 'uppercase',
-        color: '#010101',
-        width: '1200px',
+        color: '#777777',
+        width: '1360px',
         margin: '0 auto',
+        fontFamily: 'Rubik',
       }}
     >
       <HeaderOnPage />
       <SecondHeader />
       <SearchBar onSubmit={formSubmitHandler} />
+      {students && <CSVLink data={students.data}>Скачать CSV файл</CSVLink>}
       {students && <Main items={students.data} />}
+      {/* <Dropdown /> */}
       {students && (
         <Pagination
           className={s.paginationList}

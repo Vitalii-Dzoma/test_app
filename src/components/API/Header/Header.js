@@ -7,22 +7,64 @@ export const HeaderOnPage = () => {
         <div className="selector">School 1</div>
         <ul className={s.nav}>
           <li className="nav-item">
-            <button className="nav__button">Analytics</button>
+            <button
+              className={s.nav__button}
+              style={{
+                fontFamily: 'inherit',
+              }}
+            >
+              Analytics
+            </button>
           </li>
           <li className="nav-item">
-            <button className="nav__button">Gragebooks</button>
+            <button
+              className={s.nav__button}
+              style={{
+                fontFamily: 'inherit',
+              }}
+            >
+              Gragebooks
+            </button>
           </li>
           <li className="nav-item">
-            <button className="nav__button">Tests</button>
+            <button
+              className={s.nav__button}
+              style={{
+                fontFamily: 'inherit',
+              }}
+            >
+              Tests
+            </button>
           </li>
           <li className="nav-item">
-            <button className="nav__button">Students</button>
+            <button
+              className={s.nav__button}
+              style={{
+                fontFamily: 'inherit',
+              }}
+            >
+              Students
+            </button>
           </li>
           <li className="nav-item">
-            <button className="nav__button">Teachers</button>
+            <button
+              className={s.nav__button}
+              style={{
+                fontFamily: 'inherit',
+              }}
+            >
+              Teachers
+            </button>
           </li>
           <li className="nav-item">
-            <button className="nav__button">Archive</button>
+            <button
+              className={s.nav__button}
+              style={{
+                fontFamily: 'inherit',
+              }}
+            >
+              Archive
+            </button>
           </li>
         </ul>
       </div>

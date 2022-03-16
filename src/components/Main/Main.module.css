@@ -1,6 +1,29 @@
+@font-face {
+  font-family: 'Rubik', sans-serif;
+  src: url('/fonts/Rubik-VariableFont_wght.ttf') format('ttf'),
+    url('/fonts/Rubik-Italic-VariableFont_wght.ttf') format('ttf');
+}
+
 .scores {
   margin: 0 auto;
 }
 .tRows {
   padding: 10px;
 }
+
+/* .Dropdown {
+  position: relative;
+  width: 400px;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+.Dropdown__menu {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  background-color: teal;
+  color: white;
+} */

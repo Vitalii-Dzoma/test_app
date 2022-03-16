@@ -4,7 +4,12 @@ import s from './Sorting.module.css';
 export const Sorting = ({ onSort }) => {
   console.log(onSort);
   return (
-    <div className="sorting">
+    <div
+      className="sorting"
+      style={{
+        fontFamily: 'Rubik',
+      }}
+    >
       <button className="btn btn-default" onClick={() => onSort('name')}>
         <i className="fa fa-sort-alpha-asc"></i> Sort by name
       </button>
