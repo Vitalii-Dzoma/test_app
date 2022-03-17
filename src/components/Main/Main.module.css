@@ -11,19 +11,20 @@
   padding: 10px;
 }
 
-/* .Dropdown {
-  position: relative;
+.Dropdown {
+  /* position: relative;
   width: 400px;
-  padding: 20px;
-  border: 1px solid black;
+  padding: 20px; */
+  display: flex;
+  flex-direction: column;
 }
 
-.Dropdown__menu {
-  position: absolute;
+/* .Dropdown__menu {
+  /* position: absolute;
   top: 100%;
   width: 100%;
   padding: 20px;
   text-align: center;
   background-color: teal;
-  color: white;
-} */
+  color: white; */
+/* flex-direction: column; */
