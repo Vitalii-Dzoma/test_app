@@ -23,3 +23,9 @@
   line-height: 140%;
   text-transform: uppercase;
 }
+
+.active {
+  composes: nav__button;
+  color: #ffffff;
+  background-color: #a6192e;
+}

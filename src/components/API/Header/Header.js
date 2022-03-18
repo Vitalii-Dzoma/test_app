@@ -4,7 +4,7 @@ export const HeaderOnPage = () => {
   return (
     <header>
       <div className={s.header}>
-        <div className="selector">School 1</div>
+        <button className={s.nav__button}>School 1</button>
         <ul className={s.nav}>
           <li className="nav-item">
             <button
@@ -38,7 +38,7 @@ export const HeaderOnPage = () => {
           </li>
           <li className="nav-item">
             <button
-              className={s.nav__button}
+              className={s.active}
               style={{
                 fontFamily: 'inherit',
               }}

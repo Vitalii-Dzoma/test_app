@@ -3,3 +3,36 @@
   src: url('/fonts/Rubik-VariableFont_wght.ttf') format('ttf'),
     url('/fonts/Rubik-Italic-VariableFont_wght.ttf') format('ttf');
 }
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+.formLabel {
+  position: absolute;
+  left: 40px;
+  margin-top: 12px;
+  color: #5b5b5b;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+
+  text-transform: uppercase;
+}
+.input {
+  width: 500px;
+  height: 32px;
+  border-color: transparent;
+  outline: none;
+  background-color: #f2f2f2;
+  margin: 8px 0 8px 0;
+}
+
+.buttonSearch {
+  border-color: transparent;
+  margin: 0;
+  padding: 0;
+  width: 38px;
+  height: 38px;
+}

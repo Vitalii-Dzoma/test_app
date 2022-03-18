@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Rubik';
   src: url('/fonts/Rubik-VariableFont_wght.ttf') format('ttf'),
     url('/fonts/Rubik-Italic-VariableFont_wght.ttf') format('ttf');
 }
@@ -10,5 +10,24 @@
   display: flex;
   justify-content: space-evenly;
   margin: 0;
-  font-family: 'Rubik', sans-serif;
+}
+
+.nav__button {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 140%;
+  background: transparent;
+  text-transform: uppercase;
+  border-color: transparent;
+  padding: 12px;
+
+  /* New Gray */
+
+  color: #c0c0c0;
+}
+
+.svg_button {
+  padding-left: 10px;
+  padding-bottom: 1px;
 }

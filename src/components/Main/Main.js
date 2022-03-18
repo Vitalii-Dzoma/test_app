@@ -5,19 +5,35 @@ import s from './Main.module.css';
 export const Main = ({ items }) => {
   const [visible, setVisible] = useState(false);
   const [indexActivEl, setIndexActivEL] = useState(0);
-
   const setActiveIdx = index => {
     setIndexActivEL(index);
     setVisible(!visible);
   };
 
+  const colorDeterminateScore = elem => {
+    if (elem >= '50%' && elem <= '79%') {
+      return '#E2B534';
+    } else if (elem >= '80%' && elem <= '89%') {
+      return '#0F9D58';
+    } else if (elem >= '90%') {
+      return '#4285F4';
+    } else if (elem <= '50%') {
+      return '#DB4437';
+    }
+  };
+
+  const colorDeterminateSpeed = elem => {
+    if (elem === 'Above Expected') {
+      return '#4285F4';
+    } else if (elem === 'As Expected') {
+      return '#0F9D58';
+    } else if (elem === 'Below Expected') {
+      return '#DB4437';
+    }
+  };
+
   return (
-    <table
-      className={s.scores}
-      style={{
-        fontFamily: 'Rubik',
-      }}
-    >
+    <table className={s.scores}>
       <thead>
         <tr>
           <th className={s.tRows}>Name</th>
@@ -35,14 +51,24 @@ export const Main = ({ items }) => {
             onClick={() => setActiveIdx(index)}
             className={s.Dropdown}
           >
-            <div className={s.dropContainer}>
-              <td>{item.name}</td>
-              <td>{item.id}</td>
-              <td>{item.class}</td>
-              <td>{item.score}</td>
-              <td>{item.speed}</td>
-              <td>{item.parents.join(' ')}</td>
-            </div>
+            {/* <div className={s.dropContainer}> */}
+            <td className={s.tableName}>{item.name}</td>
+            <td className={s.tableId}>{item.id}</td>
+            <td className={s.tableClass}>{item.class}</td>
+            <td
+              className={s.tableScore}
+              style={{ color: colorDeterminateScore(item.score) }}
+            >
+              {item.score}
+            </td>
+            <td
+              className={s.tableSpeed}
+              style={{ color: colorDeterminateSpeed(item.speed) }}
+            >
+              {item.speed}
+            </td>
+            <td className={s.tableParents}>{item.parents.join(' ')}</td>
+            {/* </div> */}
 
             {index === indexActivEl && visible ? (
               <section className={s.dropContainer}>

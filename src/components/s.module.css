@@ -3,9 +3,6 @@
   src: url('/fonts/Rubik-VariableFont_wght.ttf') format('ttf'),
     url('/fonts/Rubik-Italic-VariableFont_wght.ttf') format('ttf');
 }
-body {
-  font-family: 'Rubik', sans-serif;
-}
 
 .paginationList {
   list-style: none;
@@ -30,4 +27,23 @@ ul.paginationList li a {
   text-decoration: none;
   transition: background-color 0.3s;
   border: 1px solid #ddd;
+}
+
+.csv_downloader {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 140%;
+
+  text-transform: uppercase;
+
+  color: #c0c0c0;
+  position: absolute;
+  top: 24%;
+  right: 10%;
+  text-decoration: none;
+}
+
+.svg__downloader {
+  padding-right: 10px;
 }
