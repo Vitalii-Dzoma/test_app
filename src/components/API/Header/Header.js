@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import s from './Header.module.css';
 export const HeaderOnPage = () => {
   return (

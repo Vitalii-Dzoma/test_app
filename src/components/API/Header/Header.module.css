@@ -26,6 +26,7 @@
 
 .active {
   composes: nav__button;
+  font-weight: 700;
   color: #ffffff;
   background-color: #a6192e;
 }

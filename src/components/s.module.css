@@ -10,13 +10,9 @@
   column-gap: 2px;
 }
 
-.paginationList li {
-  margin: 0 1px;
-}
-
 ul.paginationList {
-  display: inline;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
   padding: 0;
 }
 
@@ -30,20 +26,27 @@ ul.paginationList li a {
 }
 
 .csv_downloader {
+  font-family: inherit;
   font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
+  font-weight: 400;
+  font-size: 14px;
   line-height: 140%;
+
+  color: #5b5b5b;
 
   text-transform: uppercase;
 
   color: #c0c0c0;
   position: absolute;
-  top: 24%;
+  top: 21%;
   right: 10%;
   text-decoration: none;
 }
 
 .svg__downloader {
   padding-right: 10px;
+}
+
+.loader {
+  margin: 0 auto;
 }

@@ -2,7 +2,7 @@ import { fetchData } from 'components/API/Api';
 import { useState } from 'react';
 import s from './Main.module.css';
 
-export const Main = ({ items }) => {
+export const Main = ({ items, onSort }) => {
   const [visible, setVisible] = useState(false);
   const [indexActivEl, setIndexActivEL] = useState(0);
   const setActiveIdx = index => {
@@ -36,11 +36,19 @@ export const Main = ({ items }) => {
     <table className={s.scores}>
       <thead>
         <tr>
-          <th className={s.tRows}>Name</th>
+          <th className={s.tRows} onClick={() => onSort('name')}>
+            Name
+          </th>
           <th className={s.tRows}>ID</th>
-          <th className={s.tRows}>Class</th>
-          <th className={s.tRows}>Av.Score,%</th>
-          <th className={s.tRows}>Av.Speed</th>
+          <th className={s.tRows} onClick={() => onSort('class')}>
+            Class
+          </th>
+          <th className={s.tRows} onClick={() => onSort('score')}>
+            Av.Score,%
+          </th>
+          <th className={s.tRows} onClick={() => onSort('speed')}>
+            Av.Speed
+          </th>
           <th className={s.tRows}>Parents</th>
         </tr>
       </thead>
@@ -51,66 +59,73 @@ export const Main = ({ items }) => {
             onClick={() => setActiveIdx(index)}
             className={s.Dropdown}
           >
-            {/* <div className={s.dropContainer}> */}
-            <td className={s.tableName}>{item.name}</td>
-            <td className={s.tableId}>{item.id}</td>
-            <td className={s.tableClass}>{item.class}</td>
-            <td
-              className={s.tableScore}
-              style={{ color: colorDeterminateScore(item.score) }}
-            >
-              {item.score}
-            </td>
-            <td
-              className={s.tableSpeed}
-              style={{ color: colorDeterminateSpeed(item.speed) }}
-            >
-              {item.speed}
-            </td>
-            <td className={s.tableParents}>{item.parents.join(' ')}</td>
-            {/* </div> */}
+            <div className={s.dropDownMenu}>
+              <td className={s.tableName}>{item.name}</td>
+              <td className={s.tableId}>{item.id}</td>
+              <td className={s.tableClass}>{item.class}</td>
+              <td
+                className={s.tableScore}
+                style={{ color: colorDeterminateScore(item.score) }}
+              >
+                {item.score}
+              </td>
+              <td
+                className={s.tableSpeed}
+                style={{ color: colorDeterminateSpeed(item.speed) }}
+              >
+                {item.speed}
+              </td>
+              <td className={s.tableParents}>{item.parents.join(' ')}</td>
+            </div>
 
             {index === indexActivEl && visible ? (
               <section className={s.dropContainer}>
-                <div className="name_block">
-                  <span>Student:{item.name}</span>
-                  <span>ID:{item.id}</span>
-                </div>
-                <div>
-                  <label>
-                    All concepts
-                    <input type="select" />
-                  </label>
+                <p className={s.foldedTableTitle}>
+                  Student:
+                  <span className={s.foldedTableTitleName}>{item.name}</span>
+                  ID:<span className={s.foldedTableTitleName}>{item.id}</span>
+                </p>
+                <div className={s.selectContainer}>
+                  <select className={s.inputDropdown}>
+                    {' '}
+                    <option>All concepts</option>
+                    <option></option>
+                  </select>
+                  <select className={s.inputDropdown}>
+                    {' '}
+                    <option>All score</option>
+                    <option></option>
+                  </select>
+                  <select className={s.inputDropdown}>
+                    {' '}
+                    <option>All speed</option>
+                    <option></option>
+                  </select>
 
-                  <label>
-                    All score
-                    <input type="select" />
-                  </label>
-                  <label>
-                    All speed
-                    <input type="select" />
-                  </label>
-                  <label>
-                    Select period
-                    <input type="text" />{' '}
-                  </label>
+                  <input
+                    className={s.input}
+                    type="text"
+                    autoComplete="off"
+                    autoFocus
+                    placeholder="Select period"
+                  />
                 </div>
                 <div>
-                  <ul>
+                  <ul className={s.scoreList}>
                     Score
-                    <li>90%+ accuracy</li>
-                    <li>80 - 89% accuracy</li>
-                    <li>50 - 79% accuracy</li>
-                    <li>below 50% accuracy</li>
+                    <li className={s.scoreItem}>90%+ accuracy</li>
+                    <li className={s.scoreItem}>80 - 89% accuracy</li>
+                    <li className={s.scoreItem}>50 - 79% accuracy</li>
+                    <li className={s.scoreItem}>below 50% accuracy</li>
                   </ul>
-                  <ul>
+                  <ul className={s.speedList}>
                     Speed
-                    <li>above expected</li>
-                    <li>as expected</li>
-                    <li>below expected</li>
+                    <li className={s.speedItem}>above expected</li>
+                    <li className={s.speedItem}>as expected</li>
+                    <li className={s.speedItem}>below expected</li>
                   </ul>
                 </div>
-                <table>
+                <table className={s.foldedTable}>
                   <thead>
                     <tr>
                       <th>#</th>

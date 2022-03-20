@@ -4,6 +4,7 @@ import { SecondHeader } from './SecondHeader/SecondHeader';
 import { useState, useEffect } from 'react';
 import { SearchBar } from './SearchBar/SearchBar';
 import { Main } from './Main/Main';
+import Loader from './Loader/Loader';
 import Dropdown from './Dropdown/Dropdown';
 import { fetchData } from './API/Api';
 import Pagination from 'rc-pagination';
@@ -14,16 +15,18 @@ export const App = () => {
   const [count, setCount] = useState(1);
   const [students, setStudents] = useState(null);
   const [dir, SetDir] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     console.log('Запускается эффект');
     async function fetchFirst() {
+      setLoading(true);
       const response = await fetch(
         'https://test-task-j.herokuapp.com/data?page=1&size=10'
       );
 
       const dataGeneral = await response.json();
-
+      setLoading(false);
       setStudents(dataGeneral);
       return students;
     }
@@ -33,13 +36,15 @@ export const App = () => {
   const updatePage = p => {
     setCount(p);
     async function fetchNext() {
+      setLoading(true);
       const response = await fetch(
         `https://test-task-j.herokuapp.com/data?page=${p}&size=10`
       );
 
       const dataGeneral = await response.json();
-
+      setLoading(false);
       setStudents(dataGeneral);
+
       return students;
     }
 
@@ -49,37 +54,34 @@ export const App = () => {
   };
 
   async function sortData(type) {
+    setLoading(true);
     const response = await fetch(
       `https://test-task-j.herokuapp.com/data?page=${count}&size=10&sortBy=${type}&sortDir=${dir}`
     );
 
     const dataGeneral = await response.json();
+    setLoading(false);
     if (dir === 1) {
       SetDir(-1);
     } else {
       SetDir(1);
     }
     setStudents(dataGeneral);
+
     return students;
   }
 
   const formSubmitHandler = search => {
     setCount(1);
 
-    fetchData(search, count).then(data => setStudents(data));
-    // .finally(() => this.setState({ loading: false}));
+    fetchData(search, count)
+      .then(data => setStudents(data))
+      .finally(() => setLoading(false));
 
     setCount(count + 1);
 
     return students;
   };
-
-  setTimeout(
-    () => console.log(countPerPage),
-    console.log(count),
-
-    2000
-  );
 
   return (
     <div
@@ -112,8 +114,8 @@ export const App = () => {
           Export CSV
         </CSVLink>
       )}
-      {students && <Main items={students.data} />}
-      {/* <Dropdown /> */}
+
+      {students && <Main items={students.data} onSort={sortData} />}
       {students && (
         <Pagination
           className={s.paginationList}
@@ -123,7 +125,7 @@ export const App = () => {
           total={20}
         />
       )}
-      <Sorting onSort={sortData} />
+      {loading && <Loader className={s.loader} />}
     </div>
   );
 };
