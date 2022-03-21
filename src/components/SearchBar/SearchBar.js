@@ -4,9 +4,15 @@ import s from './SearchBar.module.css';
 export const SearchBar = ({ onSubmit }) => {
   const [name, setName] = useState('');
 
+  const ucFirst = str => {
+    if (!str) return str;
+
+    return str[0].toUpperCase() + str.slice(1);
+  };
+
   const handleChangeName = e => {
     const { name, value } = e.currentTarget;
-    setName(value);
+    setName(ucFirst(value));
   };
 
   const handleSubmit = e => {

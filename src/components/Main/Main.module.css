@@ -9,6 +9,14 @@ ul {
   display: flex;
 }
 
+[type='checkbox'] {
+  opacity: 0;
+}
+
+.checkBoxTable {
+  padding: 8px 14px;
+}
+
 .scores {
   margin: 0 auto;
   border-color: transparent;
@@ -45,28 +53,34 @@ tr:nth-child(2n) {
 }
 
 .tableName {
-  width: 300px;
+  width: 324px;
   height: 20px;
+  /* margin-right: 24px; */
 }
 .tableId {
-  width: 96px;
+  width: 120px;
   height: 20px;
+  /* margin-right: 24px; */
 }
 .tableClass {
-  width: 16px;
+  width: 40px;
   height: 20px;
+  /* margin-right: 24px; */
 }
 .tableScore {
-  width: 28px;
+  width: 52px;
   height: 20px;
+  /* margin-right: 24px; */
 }
 .tableSpeed {
-  width: 106px;
+  width: 130px;
   height: 20px;
+  /* margin-right: 24px; */
 }
 .tableParents {
-  width: 300px;
+  width: 324px;
   height: 20px;
+  /* margin-right: 24px; */
 }
 .dropContainer {
   display: flex;
@@ -240,4 +254,13 @@ li:nth-child(2) {
   line-height: 140%;
 
   color: #777777;
+}
+
+.selectContainer {
+  border-bottom: 1px solid #a6192e;
+  padding-bottom: 13px;
+}
+
+tr {
+  height: 48px;
 }

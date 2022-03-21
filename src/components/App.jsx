@@ -125,7 +125,7 @@ export const App = () => {
           total={20}
         />
       )}
-      {loading && <Loader className={s.loader} />}
+      <Loader className={s.loader} />
     </div>
   );
 };

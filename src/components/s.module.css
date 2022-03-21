@@ -4,16 +4,13 @@
     url('/fonts/Rubik-Italic-VariableFont_wght.ttf') format('ttf');
 }
 
-.paginationList {
-  list-style: none;
-
-  column-gap: 2px;
-}
-
 ul.paginationList {
   display: flex;
   justify-content: center;
   padding: 0;
+  list-style: none;
+
+  column-gap: 2px;
 }
 
 ul.paginationList li a {
@@ -49,4 +46,5 @@ ul.paginationList li a {
 
 .loader {
   margin: 0 auto;
+  display: block;
 }

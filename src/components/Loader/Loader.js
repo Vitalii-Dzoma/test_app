@@ -10,7 +10,6 @@ class Loader extends React.Component {
         width="100"
         color="grey"
         ariaLabel="loading"
-        display="inline-block"
         margin="0 auto"
       />
     );

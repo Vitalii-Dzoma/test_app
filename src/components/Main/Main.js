@@ -36,6 +36,22 @@ export const Main = ({ items, onSort }) => {
     <table className={s.scores}>
       <thead>
         <tr>
+          <th className={s.tRows}>
+            <input type="checkbox" />
+            <svg
+              className={s.checkBoxTable}
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M10.6667 1.33333V10.6667H1.33333V1.33333H10.6667ZM10.6667 0H1.33333C0.6 0 0 0.6 0 1.33333V10.6667C0 11.4 0.6 12 1.33333 12H10.6667C11.4 12 12 11.4 12 10.6667V1.33333C12 0.6 11.4 0 10.6667 0Z"
+                fill="#828282"
+              />
+            </svg>
+          </th>
           <th className={s.tRows} onClick={() => onSort('name')}>
             Name
           </th>
@@ -50,6 +66,7 @@ export const Main = ({ items, onSort }) => {
             Av.Speed
           </th>
           <th className={s.tRows}>Parents</th>
+          <th className={s.tRows}>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -60,6 +77,22 @@ export const Main = ({ items, onSort }) => {
             className={s.Dropdown}
           >
             <div className={s.dropDownMenu}>
+              <th className={s.tRows}>
+                <input type="checkbox" />
+                <svg
+                  className={s.checkBoxTable}
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10.6667 1.33333V10.6667H1.33333V1.33333H10.6667ZM10.6667 0H1.33333C0.6 0 0 0.6 0 1.33333V10.6667C0 11.4 0.6 12 1.33333 12H10.6667C11.4 12 12 11.4 12 10.6667V1.33333C12 0.6 11.4 0 10.6667 0Z"
+                    fill="#828282"
+                  />
+                </svg>
+              </th>
               <td className={s.tableName}>{item.name}</td>
               <td className={s.tableId}>{item.id}</td>
               <td className={s.tableClass}>{item.class}</td>
@@ -76,6 +109,7 @@ export const Main = ({ items, onSort }) => {
                 {item.speed}
               </td>
               <td className={s.tableParents}>{item.parents.join(' ')}</td>
+              <td className={s.tableActions}>Actions</td>
             </div>
 
             {index === indexActivEl && visible ? (
