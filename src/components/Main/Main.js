@@ -1,6 +1,7 @@
 import { fetchData } from 'components/API/Api';
 import { useState } from 'react';
 import s from './Main.module.css';
+import propTypes from 'prop-types';
 
 export const Main = ({ items, onSort }) => {
   const [visible, setVisible] = useState(false);
@@ -76,7 +77,7 @@ export const Main = ({ items, onSort }) => {
             onClick={() => setActiveIdx(index)}
             className={s.Dropdown}
           >
-            <div className={s.dropDownMenu}>
+            <td className={s.dropDownMenu}>
               <th className={s.tRows}>
                 <input type="checkbox" />
                 <svg
@@ -110,7 +111,7 @@ export const Main = ({ items, onSort }) => {
               </td>
               <td className={s.tableParents}>{item.parents.join(' ')}</td>
               <td className={s.tableActions}>Actions</td>
-            </div>
+            </td>
 
             {index === indexActivEl && visible ? (
               <section className={s.dropContainer}>
@@ -169,7 +170,6 @@ export const Main = ({ items, onSort }) => {
                       <th>Total Q-ns</th>
                       <th>Exp. Speed</th>
                       <th>Concept</th>
-                      <th>Concept</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -191,6 +191,18 @@ export const Main = ({ items, onSort }) => {
                       <td>{item.tests[1].concept}</td>
                       <td>{item.tests[1].date}</td>
                     </tr>
+                    <tr>
+                      <td
+                        style={{
+                          color: colorDeterminateScore(
+                            item.tests[0].score + item.tests[1].score / 2
+                          ),
+                        }}
+                      >
+                        Average:
+                        {item.tests[0].score + item.tests[1].score / 2}%
+                      </td>
+                    </tr>
                   </tbody>
                 </table>
               </section>
@@ -199,17 +211,12 @@ export const Main = ({ items, onSort }) => {
             )}
           </tr>
         ))}
-        {/* {visible && (
-          <tr key={'Выпадайка'} className={s.Dropdown__menu}>
-            <td>{'Console'}</td>
-            <td>{'Console'}</td>
-            <td>{'Console'}</td>
-            <td>{'Console'}</td>
-            <td>{'Console'}</td>
-            <td>{'Console'}</td>
-          </tr>
-        )} */}
       </tbody>
     </table>
   );
+};
+
+Main.propTypes = {
+  items: propTypes.arrayOf(propTypes.object).isRequired,
+  onSort: propTypes.func,
 };

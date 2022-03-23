@@ -1,15 +1,15 @@
-import { HeaderOnPage } from './API/Header/Header';
+import { HeaderOnPage } from './Header/Header';
 import { CSVLink, CSVDownload } from 'react-csv';
 import { SecondHeader } from './SecondHeader/SecondHeader';
 import { useState, useEffect } from 'react';
 import { SearchBar } from './SearchBar/SearchBar';
 import { Main } from './Main/Main';
 import Loader from './Loader/Loader';
-import Dropdown from './Dropdown/Dropdown';
 import { fetchData } from './API/Api';
 import Pagination from 'rc-pagination';
+
 import s from './s.module.css';
-import { Sorting } from './Sorting/Sorting';
+
 export const App = () => {
   const countPerPage = 10;
   const [count, setCount] = useState(1);
@@ -18,13 +18,11 @@ export const App = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    console.log('Запускается эффект');
     async function fetchFirst() {
       setLoading(true);
       const response = await fetch(
         'https://test-task-j.herokuapp.com/data?page=1&size=10'
       );
-
       const dataGeneral = await response.json();
       setLoading(false);
       setStudents(dataGeneral);
@@ -78,8 +76,6 @@ export const App = () => {
       .then(data => setStudents(data))
       .finally(() => setLoading(false));
 
-    setCount(count + 1);
-
     return students;
   };
 
@@ -125,7 +121,8 @@ export const App = () => {
           total={20}
         />
       )}
-      <Loader className={s.loader} />
+
+      {loading && <Loader className={s.loader} />}
     </div>
   );
 };

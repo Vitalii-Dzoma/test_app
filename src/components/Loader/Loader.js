@@ -10,7 +10,7 @@ class Loader extends React.Component {
         width="100"
         color="grey"
         ariaLabel="loading"
-        margin="0 auto"
+        sx={{ width: 'fit-content', margin: '0 auto' }}
       />
     );
   }

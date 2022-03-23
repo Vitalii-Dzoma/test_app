@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import s from './SearchBar.module.css';
-
+import propTypes from 'prop-types';
 export const SearchBar = ({ onSubmit }) => {
   const [name, setName] = useState('');
 
@@ -59,4 +59,8 @@ export const SearchBar = ({ onSubmit }) => {
       </div>
     </form>
   );
+};
+
+SearchBar.propTypes = {
+  onSubmit: propTypes.func,
 };

@@ -10,7 +10,7 @@ ul {
 }
 
 [type='checkbox'] {
-  opacity: 0;
+  display: none;
 }
 
 .checkBoxTable {
@@ -83,6 +83,7 @@ tr:nth-child(2n) {
   /* margin-right: 24px; */
 }
 .dropContainer {
+  float: left;
   display: flex;
   flex-direction: column;
   font-family: inherit;

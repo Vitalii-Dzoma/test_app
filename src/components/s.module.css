@@ -46,5 +46,5 @@ ul.paginationList li a {
 
 .loader {
   margin: 0 auto;
-  display: block;
+  display: inline-block;
 }
