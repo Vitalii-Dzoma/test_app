@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/test-app/static/css/main.9de7e9e0.css",
+    "main.js": "/test-app/static/js/main.55402bc3.js",
+    "static/js/787.6b7abe35.chunk.js": "/test-app/static/js/787.6b7abe35.chunk.js",
+    "static/media/Rubik-VariableFont_wght.ttf": "/test-app/static/media/Rubik-VariableFont_wght.3a8e5377732eefcf42fb.ttf",
+    "static/media/Rubik-Italic-VariableFont_wght.ttf": "/test-app/static/media/Rubik-Italic-VariableFont_wght.ede281d4a6388f7378fa.ttf",
+    "index.html": "/test-app/index.html",
+    "main.9de7e9e0.css.map": "/test-app/static/css/main.9de7e9e0.css.map",
+    "main.55402bc3.js.map": "/test-app/static/js/main.55402bc3.js.map",
+    "787.6b7abe35.chunk.js.map": "/test-app/static/js/787.6b7abe35.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9de7e9e0.css",
+    "static/js/main.55402bc3.js"
+  ]
+}
